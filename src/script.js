@@ -51,7 +51,7 @@ gltfLoader.load (
             })
         gltf.scene.position.setX(0)  // this is offsetting the imported scene from Blender to avoid moving keyframes
         gltf.scene.position.setY(-0.8)
-        gltf.scene.position.setZ(-0.5)
+        gltf.scene.position.setZ(0)
         scene.add(gltf.scene)
         console.log(gltf)
 
@@ -123,11 +123,10 @@ scene.add(camera)
 controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
-controls.screenSpacePanning = true
-controls.minAzimuthAngle = 1
+controls.screenSpacePanning = false
+// controls.minAzimuthAngle = 1
 controls.maxAzimuthAngle = Math.PI / 2
-controls.minPolarAngle = 1
-controls.maxPolarAngle = Math.PI * 2 *0.5
+controls.maxPolarAngle = Math.PI / 2
 controls.maxDistance = 4
 controls.minDistance = 2
 // var gridXZ = new THREE.GridHelper(10, 1);
