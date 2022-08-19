@@ -50,8 +50,8 @@ gltfLoader.load (
             child.material = bakedMaterial
             })
         gltf.scene.position.setX(0)  // this is offsetting the imported scene from Blender to avoid moving keyframes
-        gltf.scene.position.setY(-0.6)
-        gltf.scene.position.setZ(0)
+        gltf.scene.position.setY(-0.8)
+        gltf.scene.position.setZ(-0.5)
         scene.add(gltf.scene)
         console.log(gltf)
 
@@ -59,14 +59,14 @@ gltfLoader.load (
         const sedan = mixer.clipAction(gltf.animations[73])
         const smallBus = mixer.clipAction(gltf.animations[70])
         const bigBus = mixer.clipAction(gltf.animations[67])
-        const cloudOne = mixer.clipAction(gltf.animations[60])
-        const cloudTwo = mixer.clipAction(gltf.animations[61])
-        const cloudThree = mixer.clipAction(gltf.animations[62])
-        const bird1 = mixer.clipAction(gltf.animations[63])
-        const bird2 = mixer.clipAction(gltf.animations[64])
-        const bird3 = mixer.clipAction(gltf.animations[65])
-        const bird4 = mixer.clipAction(gltf.animations[66])
-        const gpsRing = mixer.clipAction(gltf.animations[56])
+        const cloudOne = mixer.clipAction(gltf.animations[0])
+        const cloudTwo = mixer.clipAction(gltf.animations[1])
+        const cloudThree = mixer.clipAction(gltf.animations[2])
+        const bird1 = mixer.clipAction(gltf.animations[3])
+        const bird2 = mixer.clipAction(gltf.animations[4])
+        const bird3 = mixer.clipAction(gltf.animations[5])
+        const bird4 = mixer.clipAction(gltf.animations[6])
+        const gpsRing = mixer.clipAction(gltf.animations[63])
 
        sedan.play()
        smallBus.play()
@@ -122,6 +122,14 @@ scene.add(camera)
 // Controls
 controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+
+controls.screenSpacePanning = true
+controls.minAzimuthAngle = 1
+controls.maxAzimuthAngle = Math.PI / 2
+controls.minPolarAngle = 1
+controls.maxPolarAngle = Math.PI * 2 *0.5
+controls.maxDistance = 4
+controls.minDistance = 2
 // var gridXZ = new THREE.GridHelper(10, 1);
 //     scene.add(gridXZ);
 
@@ -150,9 +158,9 @@ const tick = () =>
 
     // Update controls
     controls.update()
-    console.log (camera.position.x,
-        camera.position.y,
-        camera.position.z)
+    // console.log (camera.position.x,
+    //     camera.position.y,
+    //     camera.position.z)
 
     if (mixer !== null){
         mixer.update(deltaTime)
