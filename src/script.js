@@ -111,7 +111,7 @@ window.addEventListener('resize', () =>
 // Base camera
 const camera = new THREE.PerspectiveCamera(65, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 2.67
-camera.position.y = 0.52
+camera.position.y = 0.22
 camera.position.z = -0.54
 camera.lookAt (new THREE.Vector3(200,100,1000));
 
