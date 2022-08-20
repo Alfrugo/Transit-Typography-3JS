@@ -94,7 +94,7 @@ window.addEventListener('resize', () =>
 {
     // Update sizes
     sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+    // sizes.height = window.innerHeight
 
     // Update camera
     camera.aspect = sizes.width / sizes.height
