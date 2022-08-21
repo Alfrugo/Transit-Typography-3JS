@@ -3,8 +3,6 @@
 This is a simpple example of an exported baked Blender scene into Three.js 
 
 
-
-
 ## Setup
 
 Install dependencies (only the first time)
@@ -23,5 +21,4 @@ npm run build
 ## View live sample here
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/19b626cd-80f3-4210-a8a5-98e4c173ff50/deploy-status)](https://transit-threejs.netlify.app/)
-
 

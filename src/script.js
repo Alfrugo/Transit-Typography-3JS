@@ -11,6 +11,16 @@ import { CubeCamera, MixOperation } from 'three'
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
+const canvasWidth = document.getElementById('canvas2').clientWidth
+const canvasHeight = document.getElementById('canvas2').clientHeight
+
+console.log('width ', canvasWidth)
+
+console.log('height ', canvasHeight)
+
+
+console.log(canvas2)
+
 const scene = new THREE.Scene()
 
 let previousTime = 0
@@ -52,8 +62,9 @@ gltfLoader.load (
         gltf.scene.position.setX(0)  // this is offsetting the imported scene from Blender to avoid moving keyframes
         gltf.scene.position.setY(-0.8)
         gltf.scene.position.setZ(0)
+
         scene.add(gltf.scene)
-        console.log(gltf)
+        // console.log(gltf)
 
         mixer = new THREE.AnimationMixer(gltf.scene)
         const sedan = mixer.clipAction(gltf.animations[73])
@@ -79,44 +90,47 @@ gltfLoader.load (
        bird3.play()
        bird4.play()
        gpsRing.play()
+
     }
 )
 
 /**
  * Sizes
  */
+
+console.log('canvas')
+console.log(canvas)
 const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
+    // width: window.innerWidth,
+    // height: window.innerHeight
+    width: canvasWidth ,
+    height: canvasHeight
 }
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
 
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    // sizes.height = window.innerHeight
+//     // Update camera
+//     camera.aspect = sizes.width / sizes.height
+//     camera.updateProjectionMatrix()
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+// })
 
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
+
 
 /**
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(65, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(55, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 2.67
 camera.position.y = 0.22
 camera.position.z = -0.54
 camera.lookAt (new THREE.Vector3(200,100,1000));
-
-console.log(camera.position.x , camera.position.y, camera.position.z)
-
 scene.add(camera)
 
 // Controls
@@ -142,7 +156,12 @@ const renderer = new THREE.WebGLRenderer({
 
 scene.background = new THREE.Color(0xffffff)
 renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+// if (sizes.width <= 800) {
+//     renderer.setSize(sizes.width * 0.5, sizes.height*0.5)
+// }
+// else {renderer.setSize(sizes.width, sizes.height)}
+// // renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 /**
  * Animate
@@ -151,6 +170,7 @@ const clock = new THREE.Clock()
 
 const tick = () =>
 {
+
     const elapsedTime = clock.getElapsedTime()
     const deltaTime = elapsedTime - previousTime
     previousTime = elapsedTime
