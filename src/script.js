@@ -19,7 +19,6 @@ console.log('width ', canvasWidth)
 console.log('height ', canvasHeight)
 
 
-console.log(canvas2)
 
 const scene = new THREE.Scene()
 
@@ -119,6 +118,20 @@ const sizes = {
 //     // Update renderer
 //     renderer.setSize(sizes.width, sizes.height)
 // })
+
+
+window.addEventListener('resize', () =>
+{
+    // Update sizes
+    sizes.width = canvasWidth
+    sizes.height = canvasHeight
+    // Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // Update renderer
+    renderer.setSize(sizes.width, sizes.height)
+})
 
 
 
