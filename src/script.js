@@ -98,8 +98,7 @@ gltfLoader.load (
  * Sizes
  */
 
-console.log('canvas')
-console.log(canvas)
+
 const sizes = {
     // width: window.innerWidth,
     // height: window.innerHeight
@@ -123,12 +122,12 @@ const sizes = {
 
 window.addEventListener('resize', () =>
 {
-    // Update sizes
-    sizes.width = 600
-    sizes.height = 600
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+    // // Update sizes
+    // sizes.width = 600
+    // sizes.height = 600
+    // // Update camera
+    // camera.aspect = sizes.width / sizes.height
+    // camera.updateProjectionMatrix()
 
     // Update renderer
     // renderer.setSize(sizes.width, sizes.height)
@@ -142,7 +141,7 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(100, 600 / 600, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(100, 1, 0.1, 100)
 camera.position.x = 2.67
 camera.position.y = 0.22
 camera.position.z = -0.54
