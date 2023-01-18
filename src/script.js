@@ -11,12 +11,13 @@ import { CubeCamera, MixOperation } from 'three'
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
-const canvasWidth = document.getElementById('canvas2').clientWidth
-const canvasHeight = document.getElementById('canvas2').clientHeight
+// const canvasWidth = document.getElementById('canvas2').clientWidth
+// const canvasHeight = document.getElementById('canvas2').clientHeight
 
-console.log('width ', canvasWidth)
+const canvasWidth = 600
+const canvasHeight = 600
 
-console.log('height ', canvasHeight)
+
 
 
 
@@ -123,14 +124,16 @@ const sizes = {
 window.addEventListener('resize', () =>
 {
     // Update sizes
-    sizes.width = canvasWidth
-    sizes.height = canvasHeight
+    sizes.width = 600
+    sizes.height = 600
     // Update camera
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
 
     // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
+    // renderer.setSize(sizes.width, sizes.height)
+    renderer.setSize(600, 600)
+
 })
 
 
@@ -139,7 +142,7 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(55, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(100, 600 / 600, 0.1, 100)
 camera.position.x = 2.67
 camera.position.y = 0.22
 camera.position.z = -0.54
