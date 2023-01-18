@@ -14,8 +14,8 @@ const canvas = document.querySelector('canvas.webgl')
 // const canvasWidth = document.getElementById('canvas2').clientWidth
 // const canvasHeight = document.getElementById('canvas2').clientHeight
 
-const canvasWidth = 300 
-const canvasHeight = 300
+const canvasWidth = 600 
+const canvasHeight = 600
 
 
 
